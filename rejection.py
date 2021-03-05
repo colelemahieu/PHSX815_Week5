@@ -49,20 +49,15 @@ for i in range(0,trials):
 
 # define the x-range
 x = np.linspace(-75,150,1000)
-
-# normalize histogram 
-#density, bins = np.histogram(approx, bins=20, density=True)
-#unity_density = density / density.sum()
-fig, ax = plt.subplots(figsize = (6,6))
-#widths = bins[:-1] - bins[1:]
-#ax.bar(bins[1:], unity_density, width=widths, color="steelblue", align = "edge", label="Approximation")
-#ax.set_ylabel("Probability")
     
 # more plot stuff
+fig, ax = plt.subplots(figsize = (6,6))
 ax.plot(x, target(x), color="forestgreen", label="Target")
 ax.hist(approx, label="Approximation", density=True)
 ax.axhline(0.01,-75,150, color="firebrick", label="Proposal")
 ax.set_title("Rejection Hurts")
+ax.set_xlabel("x")
+ax.set_ylabel("Probability")
 ax.set_xlim([-75,150])
 ax.set_ylim([0,0.015])
 ax.legend()
